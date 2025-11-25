@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Categorias</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
   <a href="index.html">Voltar</a>
   <h1>Categorias</h1>
@@ -28,13 +30,13 @@
 
   <script>
     function carregarCategorias() {
-      $.get('/api/categorias', function(data) {
+      $.get('/api/categorias', function (data) {
         const linhas = data.map(c => `<tr><td>${c.id}</td><td>${c.nome}</td><td>${c.descricao}</td></tr>`);
         $('#categoria-table tbody').html(linhas.join(''));
       });
     }
 
-    $('#categoria-form').on('submit', function(event) {
+    $('#categoria-form').on('submit', function (event) {
       event.preventDefault();
       $.post('/api/categorias', {
         nome: $('#nome').val(),
@@ -48,4 +50,5 @@
     carregarCategorias();
   </script>
 </body>
+
 </html>
