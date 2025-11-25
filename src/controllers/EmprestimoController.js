@@ -6,28 +6,31 @@ class EmprestimoController extends CrudController {
     this.exemplarRepository = exemplarRepository;
   }
 
-  criarEmprestimo = (req, res) => {
-    const exemplar = this.exemplarRepository.findById(req.body.idExemplar);
+  criarEmprestimo = async (req, res) => {
+    const exemplar = await this.exemplarRepository.findById(req.body.idExemplar);
     if (!exemplar) return res.status(400).json({ message: 'Exemplar não existe' });
     if (exemplar.status === 'emprestado') return res.status(400).json({ message: 'Exemplar já emprestado' });
 
-    exemplar.status = 'emprestado';
-    const emprestimo = this.repository.create({
+    await this.exemplarRepository.update(exemplar.id, { status: 'emprestado' });
+
+    const emprestimo = await this.repository.create({
       ...req.body,
       dataEmprestimo: req.body.dataEmprestimo || new Date().toISOString().substring(0, 10),
     });
     res.status(201).json(emprestimo);
   };
 
-  devolver = (req, res) => {
-    const emprestimo = this.repository.findById(req.params.id);
+  devolver = async (req, res) => {
+    const emprestimo = await this.repository.findById(req.params.id);
     if (!emprestimo) return res.status(404).json({ message: 'Empréstimo não encontrado' });
 
-    emprestimo.marcarDevolvido();
-    const exemplar = this.exemplarRepository.findById(emprestimo.idExemplar);
-    if (exemplar) exemplar.status = 'disponivel';
+    const hoje = new Date().toISOString().substring(0, 10);
+    await this.repository.update(emprestimo.id, { dataDevolvido: hoje });
+    await this.exemplarRepository.update(emprestimo.idExemplar, { status: 'disponivel' });
 
-    res.json(emprestimo);
+    const atualizado = await this.repository.findById(req.params.id);
+
+    res.json(atualizado);
   };
 }
 

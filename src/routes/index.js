@@ -1,7 +1,8 @@
 const express = require('express');
 const CrudController = require('../controllers/CrudController');
 const EmprestimoController = require('../controllers/EmprestimoController');
-const db = require('../database/MemoryDatabase');
+const LivroAutorController = require('../controllers/LivroAutorController');
+const db = require('../database/MySqlDatabase');
 
 const router = express.Router();
 
@@ -11,6 +12,7 @@ const livroController = new CrudController(db.livros);
 const usuarioController = new CrudController(db.usuarios);
 const exemplarController = new CrudController(db.exemplares);
 const emprestimoController = new EmprestimoController(db.emprestimos, db.exemplares);
+const livroAutorController = new LivroAutorController(db.livrosAutores);
 
 function buildCrudRoutes(path, controller) {
   router.get(path, controller.list);
@@ -32,5 +34,9 @@ router.post('/emprestimos', emprestimoController.criarEmprestimo);
 router.put('/emprestimos/:id', emprestimoController.update);
 router.post('/emprestimos/:id/devolver', emprestimoController.devolver);
 router.delete('/emprestimos/:id', emprestimoController.delete);
+
+router.get('/livros-autores', livroAutorController.list);
+router.post('/livros-autores', livroAutorController.create);
+router.delete('/livros-autores', livroAutorController.delete);
 
 module.exports = router;
