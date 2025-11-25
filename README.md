@@ -12,26 +12,32 @@ Este projeto oferece um exemplo didático de **programação orientada a objetos
 ```
 src/
   controllers/   -> classes que tratam as requisições HTTP
-  database/      -> banco em memória com dados de exemplo
+  database/      -> conexão com MySQL e repositórios
   models/        -> classes que representam as tabelas do diagrama
-  repositories/  -> repositório genérico para CRUD em memória
+  repositories/  -> repositórios para CRUD (MySQL)
   routes/        -> mapeamento das rotas Express
   server.js      -> inicialização do servidor
 public/           -> páginas HTML simples que chamam a API via AJAX
 ```
 
 ## Como executar
-1. Instale as dependências (é necessário acesso à internet para baixar o Express):
+1. Configure as variáveis de ambiente para apontar para o MySQL existente (conforme diagrama):
+   ```bash
+   export DB_HOST=localhost
+   export DB_PORT=3306
+   export DB_USER=root
+   export DB_PASSWORD=""
+   export DB_NAME=biblioteca
+   ```
+2. Instale as dependências (é necessário acesso à internet para baixar Express, cors e mysql2):
    ```bash
    npm install
    ```
-2. Inicie o servidor:
+3. Inicie o servidor:
    ```bash
    npm start
    ```
-3. Abra `http://localhost:3000` no navegador para usar as páginas HTML.
-
-> Caso o ambiente não permita instalar pacotes (ex.: rede restrita), o código ainda serve como referência de estudo, mas o servidor não executará até que o Express seja instalado.
+4. Abra `http://localhost:3000` no navegador para usar as páginas HTML. Agora há telas para livros, autores, categorias, usuários, empréstimos e vínculo livro x autor.
 
 ## Rotas principais
 - `GET /api/livros` – lista livros
@@ -41,6 +47,9 @@ public/           -> páginas HTML simples que chamam a API via AJAX
 - `GET /api/emprestimos` – lista empréstimos
 - `POST /api/emprestimos` – cria empréstimo e marca exemplar como emprestado
 - `POST /api/emprestimos/:id/devolver` – marca devolução e libera o exemplar
+- `GET /api/livros-autores` – lista associações entre livros e autores
+- `POST /api/livros-autores` – cria uma nova associação
+- `DELETE /api/livros-autores` – remove uma associação informando `idLivro` e `idAutor`
 
 Rotas de `PUT` e `DELETE` também estão disponíveis para as coleções padrão.
 
