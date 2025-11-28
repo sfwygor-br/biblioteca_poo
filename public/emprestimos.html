@@ -2,34 +2,85 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Empréstimos</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-  <a href="index.html">Voltar</a>
-  <h1>Empréstimos</h1>
-  <form id="emprestimo-form">
-    <input type="number" id="idExemplar" placeholder="ID do exemplar" required>
-    <input type="number" id="idUsuario" placeholder="ID do usuário" required>
-    <input type="date" id="dataDevolucao" placeholder="Devolução prevista" required>
-    <button type="submit">Registrar</button>
-  </form>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">📚 Biblioteca POO</div>
+      <nav>
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="livros.html">Livros</a>
+        <a class="nav-link" href="autores.html">Autores</a>
+        <a class="nav-link" href="categorias.html">Categorias</a>
+        <a class="nav-link" href="usuarios.html">Usuários</a>
+        <a class="nav-link active" href="emprestimos.html">Empréstimos</a>
+        <a class="nav-link" href="livros-autores.html">Livro x Autor</a>
+      </nav>
+    </aside>
 
-  <table class="table" id="emprestimo-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>ID Exemplar</th>
-        <th>ID Usuário</th>
-        <th>Data Empréstimo</th>
-        <th>Data Devolução</th>
-        <th>Data Devolvido</th>
-        <th>Ação</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+    <header class="header">
+      <div class="page-heading">
+        <p class="eyebrow">Fluxo</p>
+        <h1 class="page-title">Empréstimos</h1>
+        <p class="subtitle">Controle saídas e devoluções mantendo o cabeçalho, menu lateral e rodapé no lugar.</p>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Registrar empréstimo</h2>
+        </div>
+        <form id="emprestimo-form" class="form-grid">
+          <div>
+            <label for="idExemplar">ID do exemplar</label>
+            <input type="number" id="idExemplar" placeholder="ID do exemplar" required>
+          </div>
+          <div>
+            <label for="idUsuario">ID do usuário</label>
+            <input type="number" id="idUsuario" placeholder="ID do usuário" required>
+          </div>
+          <div>
+            <label for="dataDevolucao">Devolução prevista</label>
+            <input type="date" id="dataDevolucao" required>
+          </div>
+          <div>
+            <button type="submit">Registrar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Empréstimos em andamento</h2>
+        </div>
+        <div class="table-wrapper">
+          <table class="table" id="emprestimo-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>ID Exemplar</th>
+                <th>ID Usuário</th>
+                <th>Data Empréstimo</th>
+                <th>Data Devolução</th>
+                <th>Data Devolvido</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 Biblioteca POO. Interface otimizada para navegação sem deslocar cabeçalho, menu ou rodapé.</small>
+    </footer>
+  </div>
 
   <script>
     function carregarEmprestimos() {
