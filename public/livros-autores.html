@@ -2,37 +2,79 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Associação Livro x Autor</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-  <a href="index.html">Voltar</a>
-  <h1>Associação Livro x Autor</h1>
-  <form id="livro-autor-form">
-    <label>
-      Livro:
-      <select id="idLivro" required></select>
-    </label>
-    <label>
-      Autor:
-      <select id="idAutor" required></select>
-    </label>
-    <button type="submit">Vincular</button>
-  </form>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">📚 Biblioteca POO</div>
+      <nav>
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="livros.html">Livros</a>
+        <a class="nav-link" href="autores.html">Autores</a>
+        <a class="nav-link" href="categorias.html">Categorias</a>
+        <a class="nav-link" href="usuarios.html">Usuários</a>
+        <a class="nav-link" href="emprestimos.html">Empréstimos</a>
+        <a class="nav-link active" href="livros-autores.html">Livro x Autor</a>
+      </nav>
+    </aside>
 
-  <table class="table" id="livro-autor-table">
-    <thead>
-      <tr>
-        <th>ID Livro</th>
-        <th>Título</th>
-        <th>ID Autor</th>
-        <th>Nome do Autor</th>
-        <th>Ação</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+    <header class="header">
+      <div class="page-heading">
+        <p class="eyebrow">Associação</p>
+        <h1 class="page-title">Livro x Autor</h1>
+        <p class="subtitle">Vincule livros e autores com a navegação fixa e apenas o conteúdo rolando.</p>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Criar vínculo</h2>
+        </div>
+        <form id="livro-autor-form" class="form-grid">
+          <div>
+            <label for="idLivro">Livro</label>
+            <select id="idLivro" required></select>
+          </div>
+          <div>
+            <label for="idAutor">Autor</label>
+            <select id="idAutor" required></select>
+          </div>
+          <div>
+            <button type="submit">Vincular</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Vínculos ativos</h2>
+        </div>
+        <div class="table-wrapper">
+          <table class="table" id="livro-autor-table">
+            <thead>
+              <tr>
+                <th>ID Livro</th>
+                <th>Título</th>
+                <th>ID Autor</th>
+                <th>Nome do Autor</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 Biblioteca POO. Interface otimizada para navegação sem deslocar cabeçalho, menu ou rodapé.</small>
+    </footer>
+  </div>
 
   <script>
     function carregarLivros() {

@@ -2,36 +2,96 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Usuários</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-  <a href="index.html">Voltar</a>
-  <h1>Usuários</h1>
-  <form id="usuario-form">
-    <input type="text" id="nome" placeholder="Nome" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="senha" placeholder="Senha" required>
-    <input type="text" id="telefone" placeholder="Telefone" required>
-    <input type="text" id="endereco" placeholder="Endereço" required>
-    <label>Data de nascimento: <input type="date" id="dataNascimento" required></label>
-    <button type="submit">Cadastrar</button>
-  </form>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">📚 Biblioteca POO</div>
+      <nav>
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="livros.html">Livros</a>
+        <a class="nav-link" href="autores.html">Autores</a>
+        <a class="nav-link" href="categorias.html">Categorias</a>
+        <a class="nav-link active" href="usuarios.html">Usuários</a>
+        <a class="nav-link" href="emprestimos.html">Empréstimos</a>
+        <a class="nav-link" href="livros-autores.html">Livro x Autor</a>
+      </nav>
+    </aside>
 
-  <table class="table" id="usuario-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Telefone</th>
-        <th>Endereço</th>
-        <th>Nascimento</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+    <header class="header">
+      <div class="page-heading">
+        <p class="eyebrow">Cadastro</p>
+        <h1 class="page-title">Usuários</h1>
+        <p class="subtitle">Crie e acompanhe usuários com a navegação fixa e o foco apenas no conteúdo rolável.</p>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Novo usuário</h2>
+        </div>
+        <form id="usuario-form" class="form-grid">
+          <div>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Nome" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" required>
+          </div>
+          <div>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Senha" required>
+          </div>
+          <div>
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" placeholder="Telefone" required>
+          </div>
+          <div>
+            <label for="endereco">Endereço</label>
+            <input type="text" id="endereco" placeholder="Endereço" required>
+          </div>
+          <div>
+            <label for="dataNascimento">Data de nascimento</label>
+            <input type="date" id="dataNascimento" required>
+          </div>
+          <div>
+            <button type="submit">Cadastrar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Usuários cadastrados</h2>
+        </div>
+        <div class="table-wrapper">
+          <table class="table" id="usuario-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Nascimento</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 Biblioteca POO. Interface otimizada para navegação sem deslocar cabeçalho, menu ou rodapé.</small>
+    </footer>
+  </div>
 
   <script>
     function carregarUsuarios() {

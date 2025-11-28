@@ -2,21 +2,53 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Biblioteca POO - Página inicial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca POO - Início</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Biblioteca POO</h1>
-  <p>Use os links abaixo para explorar a API em modo didático com jQuery + AJAX.</p>
-  <nav>
-    <ul>
-      <li><a href="livros.html">Livros</a></li>
-      <li><a href="autores.html">Autores</a></li>
-      <li><a href="categorias.html">Categorias</a></li>
-      <li><a href="usuarios.html">Usuários</a></li>
-      <li><a href="emprestimos.html">Empréstimos</a></li>
-      <li><a href="livros-autores.html">Associação Livro x Autor</a></li>
-    </ul>
-  </nav>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">📚 Biblioteca POO</div>
+      <nav>
+        <a class="nav-link active" href="index.html">Início</a>
+        <a class="nav-link" href="livros.html">Livros</a>
+        <a class="nav-link" href="autores.html">Autores</a>
+        <a class="nav-link" href="categorias.html">Categorias</a>
+        <a class="nav-link" href="usuarios.html">Usuários</a>
+        <a class="nav-link" href="emprestimos.html">Empréstimos</a>
+        <a class="nav-link" href="livros-autores.html">Livro x Autor</a>
+      </nav>
+    </aside>
+
+    <header class="header">
+      <div class="page-heading">
+        <p class="eyebrow">Visão geral</p>
+        <h1 class="page-title">Biblioteca POO</h1>
+        <p class="subtitle">Explore e gerencie livros, autores, categorias e empréstimos em uma interface unificada e fluida.</p>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Comece por aqui</h2>
+        </div>
+        <p>Use os atalhos abaixo para acessar rapidamente as áreas administrativas do sistema.</p>
+        <div class="form-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 10px;">
+          <a class="nav-link active" style="display:block; background: var(--bg-strong); color: var(--text); border: 1px solid var(--border); box-shadow: var(--shadow);" href="livros.html">Gerenciar livros</a>
+          <a class="nav-link active" style="display:block; background: var(--bg-strong); color: var(--text); border: 1px solid var(--border); box-shadow: var(--shadow);" href="autores.html">Gerenciar autores</a>
+          <a class="nav-link active" style="display:block; background: var(--bg-strong); color: var(--text); border: 1px solid var(--border); box-shadow: var(--shadow);" href="categorias.html">Gerenciar categorias</a>
+          <a class="nav-link active" style="display:block; background: var(--bg-strong); color: var(--text); border: 1px solid var(--border); box-shadow: var(--shadow);" href="usuarios.html">Gerenciar usuários</a>
+          <a class="nav-link active" style="display:block; background: var(--bg-strong); color: var(--text); border: 1px solid var(--border); box-shadow: var(--shadow);" href="emprestimos.html">Gerenciar empréstimos</a>
+          <a class="nav-link active" style="display:block; background: var(--bg-strong); color: var(--text); border: 1px solid var(--border); box-shadow: var(--shadow);" href="livros-autores.html">Associar livro x autor</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 Biblioteca POO. Interface otimizada para navegação sem deslocar cabeçalho, menu ou rodapé.</small>
+    </footer>
+  </div>
 </body>
 </html>
